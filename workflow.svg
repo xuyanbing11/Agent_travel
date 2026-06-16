@@ -1,0 +1,77 @@
+<svg width="1120" height="620" viewBox="0 0 1120 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">LangGraph 多智能体旅行规划系统工作流</title>
+  <desc id="desc">用户输入经过 Parser Agent、Planner Agent、Budget Agent 和 Report Agent，最终生成旅行规划报告。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 30px "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 15px "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #475569; }
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; rx: 14; }
+      .box-primary { fill: #eef6ff; stroke: #60a5fa; stroke-width: 1.8; rx: 14; }
+      .box-green { fill: #ecfdf5; stroke: #34d399; stroke-width: 1.8; rx: 14; }
+      .box-amber { fill: #fffbeb; stroke: #f59e0b; stroke-width: 1.8; rx: 14; }
+      .box-rose { fill: #fff1f2; stroke: #fb7185; stroke-width: 1.8; rx: 14; }
+      .agent { font: 700 18px "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #0f172a; }
+      .model { font: 400 13px "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #475569; }
+      .small { font: 400 12px "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #64748b; }
+      .line { stroke: #334155; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .blue-line { stroke: #2563eb; stroke-width: 2; fill: none; marker-end: url(#arrowBlue); stroke-dasharray: 7 6; }
+      .label { font: 600 12px "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #2563eb; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1120" height="620"/>
+  <text class="title" x="560" y="54" text-anchor="middle">LangGraph 多智能体旅行规划系统</text>
+  <text class="subtitle" x="560" y="84" text-anchor="middle">Parser → Planner → Budget → Report 的 Agent Harness 工作流</text>
+
+  <rect class="box" x="50" y="210" width="150" height="92"/>
+  <text class="agent" x="125" y="246" text-anchor="middle">用户输入</text>
+  <text class="model" x="125" y="272" text-anchor="middle">自然语言需求</text>
+
+  <rect class="box-primary" x="250" y="185" width="170" height="142"/>
+  <text class="agent" x="335" y="225" text-anchor="middle">Parser Agent</text>
+  <text class="model" x="335" y="252" text-anchor="middle">GPT-3.5-Turbo</text>
+  <text class="small" x="335" y="280" text-anchor="middle">抽取目的地 / 天数</text>
+  <text class="small" x="335" y="300" text-anchor="middle">人数 / 预算 / 兴趣点</text>
+
+  <rect class="box-green" x="470" y="185" width="190" height="142"/>
+  <text class="agent" x="565" y="225" text-anchor="middle">Planner Agent</text>
+  <text class="model" x="565" y="252" text-anchor="middle">Serper + DeepSeek</text>
+  <text class="small" x="565" y="280" text-anchor="middle">实时搜索作为 RAG Context</text>
+  <text class="small" x="565" y="300" text-anchor="middle">生成每日行程</text>
+
+  <rect class="box-amber" x="715" y="185" width="170" height="142"/>
+  <text class="agent" x="800" y="225" text-anchor="middle">Budget Agent</text>
+  <text class="model" x="800" y="252" text-anchor="middle">Python Rules</text>
+  <text class="small" x="800" y="280" text-anchor="middle">住宿 / 餐饮 / 交通</text>
+  <text class="small" x="800" y="300" text-anchor="middle">门票 / 应急费用</text>
+
+  <rect class="box-rose" x="935" y="185" width="150" height="142"/>
+  <text class="agent" x="1010" y="225" text-anchor="middle">Report Agent</text>
+  <text class="model" x="1010" y="252" text-anchor="middle">DeepSeek</text>
+  <text class="small" x="1010" y="280" text-anchor="middle">整合信息</text>
+  <text class="small" x="1010" y="300" text-anchor="middle">输出完整报告</text>
+
+  <rect class="box" x="470" y="420" width="190" height="92"/>
+  <text class="agent" x="565" y="456" text-anchor="middle">Serper API</text>
+  <text class="model" x="565" y="482" text-anchor="middle">实时 Web Search</text>
+
+  <path class="line" d="M 200 256 L 242 256"/>
+  <path class="line" d="M 420 256 L 462 256"/>
+  <path class="line" d="M 660 256 L 707 256"/>
+  <path class="line" d="M 885 256 L 927 256"/>
+
+  <path class="blue-line" d="M 565 327 L 565 412"/>
+  <path class="blue-line" d="M 660 466 C 760 466 760 340 660 308"/>
+  <text class="label" x="595" y="376">搜索查询</text>
+  <text class="label" x="712" y="430">RAG Context</text>
+
+  <rect class="box" x="412" y="112" width="306" height="42"/>
+  <text class="model" x="565" y="138" text-anchor="middle">共享状态 TravelState 在节点间传递</text>
+</svg>
