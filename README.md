@@ -15,8 +15,7 @@
 
 ## 工作流示意图
 
-![LangGraph 多智能体旅行规划系统工作流](docs/workflow.svg)
-
+<img src="./docs/workflow.svg" alt="LangGraph 多智能体旅行规划系统工作流" width="100%">
 ```mermaid
 flowchart TD
     A[用户输入旅行需求] --> B[Parser Agent<br/>GPT-3.5-Turbo]
