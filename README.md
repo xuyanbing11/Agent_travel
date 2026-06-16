@@ -16,20 +16,18 @@
 ## 工作流示意图
 
 <img src="./docs/workflow.svg" alt="LangGraph 多智能体旅行规划系统工作流" width="100%">
-```mermaid
-flowchart TD
-    A["用户输入旅行需求"] --> B["Parser Agent<br/>GPT-3.5-Turbo"]
-    B --> C["结构化 JSON<br/>目的地 / 天数 / 人数 / 预算 / 兴趣点"]
-    C --> D["Planner Agent<br/>Serper Web Search + DeepSeek"]
+graph TD
+    A["用户输入旅行需求"] --> B["Parser Agent<br>GPT-3.5-Turbo"]
+    B --> C["结构化 JSON<br>目的地 / 天数 / 人数 / 预算 / 兴趣点"]
+    C --> D["Planner Agent<br>Serper Web Search + DeepSeek"]
     D --> E["每日旅行行程"]
-    E --> F["Budget Agent<br/>Python 规则计算"]
-    F --> G["预算明细<br/>住宿 / 餐饮 / 交通 / 门票"]
-    G --> H["Report Agent<br/>DeepSeek 报告整合"]
+    E --> F["Budget Agent<br>Python 规则计算"]
+    F --> G["预算明细<br>住宿 / 餐饮 / 交通 / 门票"]
+    G --> H["Report Agent<br>DeepSeek 报告整合"]
     H --> I["完整旅行规划报告"]
 
     D -. "实时搜索" .-> J["Serper API"]
     J -. "RAG Context" .-> D
-```
 ## 核心 Agent 说明
 
 ### 1. Parser Agent
