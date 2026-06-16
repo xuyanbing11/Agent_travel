@@ -1,0 +1,8 @@
+SQL: SELECT Country, COUNT(CustomerId) AS CustomerCount
+FROM Customer
+GROUP BY Country
+ORDER BY CustomerCount DESC
+LIMIT 1;
+
+结果:
+[('USA', 13)]
